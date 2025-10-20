@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>aov cate</title>
+<style>
+:root{
+  --bg:#0e1422;
+  --card:#141c2c;
+  --accent:#42d392;
+  --text:#e7ecf2;
+  --muted:#98a2b3;
+  --radius:14px;
+  --glass:rgba(255,255,255,0.03);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  background:radial-gradient(circle at 10% 10%,rgba(66,211,146,.08),transparent 60%),var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  padding:20px;
+}
+.card{
+  background:var(--card);
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:var(--radius);
+  box-shadow:0 6px 25px rgba(0,0,0,.4);
+  padding:24px;
+  text-align:center;
+  width:100%;
+  max-width:400px;
+}
+h1{
+  font-size:22px;
+  margin:0 0 16px 0;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:linear-gradient(90deg,rgba(66,211,146,.15),rgba(66,211,146,.05));
+  color:var(--text);
+  border:1px solid rgba(66,211,146,.3);
+  border-radius:10px;
+  padding:10px 18px;
+  font-weight:500;
+  cursor:pointer;
+  transition:all .2s ease;
+  text-decoration:none;
+}
+.btn:hover{background:rgba(66,211,146,.25);}
+.icon{width:18px;height:18px;fill:currentColor}
+.key-box{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:20px;
+}
+.key-input{
+  flex:1;
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:8px;
+  color:var(--text);
+  padding:10px;
+  font-family:monospace;
+  font-size:14px;
+}
+.toast{
+  position:fixed;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#06121a;
+  color:#c9ffe8;
+  padding:10px 16px;
+  border-radius:10px;
+  border:1px solid rgba(66,211,146,.25);
+  box-shadow:0 6px 25px rgba(0,0,0,.5);
+  display:none;
+  z-index:999;
+}
+footer{
+  margin-top:40px;
+  font-size:13px;
+  color:var(--muted);
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Aov Cate</h1>
+
+  <!-- Nút tải IPA -->
+  <a class="btn" href="https://files.catbox.moe/dqw69l.ipa" download>
+    <!-- icon download -->
+    <svg class="icon" viewBox="0 0 24 24"><path d="M12 3v12m0 0l4-4m-4 4l-4-4M21 21H3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Tải IPA
+  </a>
+
+  <!-- Phần copy key -->
+  <div class="key-box">
+    <input id="key" class="key-input" value="WhoisCate-4jDCad6eJQ" readonly>
+    <button id="copyBtn" class="btn" title="Sao chép key">
+      <!-- icon copy -->
+      <svg class="icon" viewBox="0 0 24 24"><rect x="9" y="9" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M15 7H6a2 2 0 0 0-2 2v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Copy
+    </button>
+  </div>
+</div>
+
+<div id="toast" class="toast">Đã sao chép!</div>
+
+<footer>Tải Về GetUid Như Cài Cấu Hình Dns</footer>
+<footer>Rồi Key Trên Vào Chơi Đến Hết Mùa</footer>
+<footer>Lúc Mới Tải Game Về Sẽ Hơi Lag</footer>
+<footer>+3 Ngón Tay Vào Màn Hình Liên Tiếp = Bật/Tắt Menu</footer>
+<script>
+const btn = document.getElementById('copyBtn');
+const input = document.getElementById('key');
+const toast = document.getElementById('toast');
+
+btn.addEventListener('click', async()=>{
+  try{
+    await navigator.clipboard.writeText(input.value);
+    showToast('Đã sao chép key!');
+  }catch(e){
+    input.select();
+    document.execCommand('copy');
+    showToast('Đã sao chép (fallback)');
+  }
+});
+
+function showToast(msg){
+  toast.textContent = msg;
+  toast.style.display='block';
+  clearTimeout(window._t);
+  window._t=setTimeout(()=>toast.style.display='none',2000);
+}
+</script>
+
+</body>
+</html>
