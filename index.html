@@ -3,170 +3,224 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tải Files Skin</title>
+<title>Unlock Skin Android</title>
 <style>
 :root{
-  --bg:#111827;--card:#1f2937;--text:#f9fafb;--muted:#9ca3af;
-  --accent:#6366f1;--accent2:#3b82f6;--radius:14px;
-  font-family:"Segoe UI",Roboto,sans-serif;
+  --bg:#111827;
+  --card:#1f2937;
+  --text:#f9fafb;
+  --muted:#9ca3af;
+  --accent:#6366f1;
+  --accent2:#3b82f6;
+  --radius:14px;
+  font-family: "Segoe UI", Roboto, sans-serif;
 }
-body{margin:0;padding:20px;background:var(--bg);color:var(--text);}
+body{
+  margin:0; padding:20px;
+  background:var(--bg);
+  color:var(--text);
+}
 .container{max-width:900px;margin:auto}
-.rainbow-border{position:relative;border-radius:var(--radius);padding:3px;
-  background:linear-gradient(270deg,#ff0000,#ff7f00,#ffff00,#00ff00,#0000ff,#4b0082,#8f00ff,#ff0000);
-  background-size:400% 400%;animation:rainbow 8s linear infinite;}
-.rainbow-border>.inner{background:var(--card);border-radius:calc(var(--radius)-2px);
-  padding:16px;text-align:center;}
-@keyframes rainbow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+/* Hiệu ứng viền 7 màu */
+.rainbow-border{
+  position:relative;
+  border-radius:var(--radius);
+  padding:3px;
+  background:linear-gradient(270deg,
+    #ff0000,#ff7f00,#ffff00,#00ff00,#0000ff,#4b0082,#8f00ff,#ff0000);
+  background-size:400% 400%;
+  animation:rainbow 8s linear infinite;
+}
+.rainbow-border > .inner{
+  background:var(--card);
+  border-radius:calc(var(--radius) - 2px);
+  padding:16px;
+  text-align:center;
+}
+@keyframes rainbow{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
 h1{margin:0;font-size:24px;font-weight:700}
 h1 span{color:#fef3c7;text-shadow:0 0 8px #f59e0b}
 h2{font-size:19px;margin:0 0 10px;text-align:left}
-.section-box{margin-top:20px;position:relative;border-radius:var(--radius);padding:3px;
-  background:linear-gradient(270deg,#ff0000,#ff7f00,#ffff00,#00ff00,#0000ff,#4b0082,#8f00ff,#ff0000);
-  background-size:400% 400%;animation:rainbow 8s linear infinite;box-shadow:0 0 15px rgba(0,0,0,0.5);}
-.section-box .content{background:var(--card);border-radius:calc(var(--radius)-2px);padding:16px;}
-.file{background:#111827;border-radius:var(--radius);padding:14px;margin-top:12px;
-  display:flex;justify-content:space-between;align-items:center;transition:.25s;
-  box-shadow:0 0 6px rgba(99,102,241,0.3);}
-.file:hover{background:#1e293b;transform:translateY(-3px) scale(1.02);box-shadow:0 0 12px rgba(99,102,241,0.5);}
+p{margin:6px 0}
+
+section{
+  margin-top:20px;
+}
+.section-box{
+  position:relative;
+  border-radius:var(--radius);
+  padding:3px;
+  background:linear-gradient(270deg,
+    #ff0000,#ff7f00,#ffff00,#00ff00,#0000ff,#4b0082,#8f00ff,#ff0000);
+  background-size:400% 400%;
+  animation:rainbow 8s linear infinite;
+  box-shadow:0 0 15px rgba(0,0,0,0.5);
+}
+.section-box .content{
+  background:var(--card);
+  border-radius:calc(var(--radius) - 2px);
+  padding:16px;
+}
+
+.file{
+  background:#111827;
+  border-radius:var(--radius);
+  padding:14px;
+  margin-top:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  transition:.25s;
+  box-shadow:0 0 6px rgba(99,102,241,0.3);
+}
+.file:hover{
+  background:#1e293b;
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 0 12px rgba(99,102,241,0.5);
+}
 .file-info h3{margin:0;font-size:15px}
 .file-info p{margin:4px 0 0;font-size:13px;color:var(--muted)}
-.file-actions button{background:var(--accent2);border:0;color:white;padding:8px 12px;border-radius:8px;
-  cursor:pointer;font-weight:600;transition:.25s;}
-.file-actions button:hover{background:var(--accent);box-shadow:0 0 8px var(--accent);}
-.toggle-info{display:block;width:100%;padding:10px;border:0;background:var(--accent);color:white;
-  font-weight:600;border-radius:var(--radius);cursor:pointer;transition:.25s;}
-.toggle-info:hover{background:var(--accent2);box-shadow:0 0 8px var(--accent2);}
-#info-content{display:none;margin-top:10px;color:var(--muted);font-size:14px;line-height:1.5;text-align:left;}
-#popup,#rent-popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);
-  display:none;align-items:center;justify-content:center;z-index:100;}
-#popup .box,#rent-popup .box{background:var(--card);padding:20px;border-radius:var(--radius);
-  max-width:300px;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,0.6);}
-#popup h3,#rent-popup h3{margin-top:0}
-#popup button,#rent-popup button{margin:10px;padding:8px 12px;border-radius:8px;border:0;
-  font-weight:600;cursor:pointer;}
+.file-actions button{
+  background:var(--accent2);
+  border:0;
+  color:white;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  transition:.25s;
+}
+.file-actions button:hover{
+  background:var(--accent);
+  box-shadow:0 0 8px var(--accent);
+}
+
+/* Nút link */
+.link-button{
+  display:block;
+  width:100%;
+  padding:10px;
+  text-align:center;
+  text-decoration:none;
+  background:var(--accent);
+  color:white;
+  font-weight:600;
+  border-radius:var(--radius);
+  transition:.25s;
+  margin-bottom:10px;
+}
+.link-button:hover{
+  background:var(--accent2);
+  box-shadow:0 0 8px var(--accent2);
+}
+
+/* Popup */
+#popup{
+  position:fixed;
+  top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+#popup .box{
+  background:var(--card);
+  padding:20px;
+  border-radius:var(--radius);
+  max-width:300px;
+  text-align:center;
+  box-shadow:0 6px 20px rgba(0,0,0,0.6);
+}
+#popup h3{margin-top:0}
+#popup button{
+  margin:10px;
+  padding:8px 12px;
+  border-radius:8px;
+  border:0;
+  font-weight:600;
+  cursor:pointer;
+}
 #popup .ok{background:var(--accent2);color:white}
 #popup .ok:hover{background:var(--accent)}
 #popup .cancel{background:#374151;color:white}
 #popup .cancel:hover{background:#4b5563}
-.rent-btn{background:#10b981;color:white;padding:10px 16px;font-size:14px;border:0;border-radius:8px;
-  cursor:pointer;transition:.25s;box-shadow:0 0 6px rgba(16,185,129,0.4);}
-.rent-btn:hover{background:#059669;box-shadow:0 0 10px rgba(16,185,129,0.6);}
-.contact-btn{background:var(--accent2);color:white;border:0;border-radius:8px;padding:8px 12px;
-  cursor:pointer;font-weight:600;transition:.25s;}
-.contact-btn:hover{background:var(--accent);}
-footer{text-align:center;margin-top:40px;font-size:13px;color:var(--muted);}
 </style>
 </head>
 <body>
 <div class="container">
 
+  <!-- Tiêu đề với viền 7 màu -->
   <div class="rainbow-border">
     <div class="inner">
-      <h1>📁 <span>Pack Skin LQ</span></h1>
-      <p>Hỗ trợ iOS</p>
+      <h1>📁 <span>Unlock Skin LQ Android</span></h1>
+      <p>Hỗ trợ Android </p>
     </div>
   </div>
 
-  <!-- Pack 54 -->
+  <!-- Phần 1 -->
   <section class="section-box">
     <div class="content">
-      <h2>Chưa Có Thông Tin</h2>
-
+      <h2>Unlock Skin LQ Android</h2>
       <div class="file">
         <div class="file-info">
-          <h3>Máy Mạnh</h3>
-          <p>Tương thích Cho iOS 100Mb</p>
+          <h3>Ver1.0</h3>
+          <p>Tương thích Android • 200MB</p>
         </div>
         <div class="file-actions">
-          <button onclick="confirmDownload('https://yeumoney.com/07gXd5')">Tải</button>
-        </div>
-      </div>
-
-      <!-- Thêm mục mới bên dưới -->
-      <div class="file">
-        <div class="file-info">
-          <h3>Máy Yếu</h3>
-          <p>Tương thích Cho iOS 100MB</p>
-        </div>
-        <div class="file-actions">
-          <button onclick="confirmDownload('https://yeumoney.com/KDDEfx')">Tải</button>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- V2 -->
-  <section class="section-box">
-    <div class="content">
-      <h2>Chưa Có Thông Tin</h2>
-      <div class="file">
-        <div class="file-info">
-          <h3>Chưa Có Thông Tin</h3>
-          <p>Tương thích iOS • 200Mb</p>
-        </div>
-        <div class="file-actions">
-          <button onclick="confirmDownload('https://yeumoney.com/DekZ99q-T79')">Tải</button>
+          <button onclick="confirmDownload('https://www.mediafire.com/file/1sl1vink71mk8iu/Unlock+Skin+LQ+Android.apk/file')">Tải</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- V3 -->
+  <!-- Phần 2 -->
   <section class="section-box">
     <div class="content">
-      <h2>Mod Skin LQ Chế</h2>
+      <h2>Unlock Skin LQ Android[Fix Văng]</h2>
       <div class="file">
         <div class="file-info">
-          <h3>Chưa Có Thông Tin</h3>
-          <p>Tương thích iOS</p>
+          <h3>Bản Fix Văng Cho Ae Nào Không Cài Đc Cái Trên</h3>
+          <p>Tương thích Cho iOS 200MB</p>
         </div>
         <div class="file-actions">
-          <button onclick="confirmDownload('https://link4sub.com/QyrO')">Tải</button>
-      </div>
+          <button onclick="confirmDownload('https://www.mediafire.com/file/me5wz38c7ou5hdp/Unlock+Skin+Android[Fix+Văng].apk/file')">Tải</button>
         </div>
-  </section>
-
-  <!-- Video hướng dẫn -->
-  <section class="section-box">
-    <div class="content">
-      <h2>🎥 Hướng Dẫn Mod Skin Cho iOS</h2>
-      <p>Xem video hướng dẫn tại đây:</p>
-      <p>
-        <a href="https://vimeo.com/1118459452?fl=pl&fe=sh" target="_blank" 
-           style="color:var(--accent2);font-weight:600;text-decoration:underline;">
-          👉 Bấm để xem video hướng dẫn
-        </a>
-      </p>
-    </div>
-  </section>
-
-  <!-- Lưu ý -->
-  <section class="section-box">
-    <div class="content">
-      <button class="toggle-info" onclick="toggleInfo()">Ẩn/Hiện • Lưu Ý</button>
-      <div id="info-content">
-        <p>📌 Lưu ý :</p>
-        <ul>
-          <li>• Nhớ Xoá Mod Cũ Trước Khi Dùng Mod Mới</li>
-          <li>• Đối với iOS Không Menu Thì Vào Thư Mục Game Xoá Mục Resources</li>
-          <li>• Files máy yếu bắt buộc mặc định trước khi mod tránh lỗi hiệu ứng</li>
-          <li>• Hạn Chế Chơi Liên Tiếp Để Tránh Lỗi Trận</li>
-          <li>• Trong Trường Hợp Lỗi Trận Xoá Mod Rồi Vô Lại Game Là Được</li>
-        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Nút thuê -->
-  <section style="text-align:center;margin-top:30px;">
-    <button class="rent-btn" onclick="openRent()">📞 Thuê Mod Skin</button>
+  <!-- Phần 3 -->
+  <section class="section-box">
+    <div class="content">
+      <h2>Link Get Key Free</h2>
+      <div class="file">
+        <div class="file-info">
+          <h3>Vượt 1 Link</h3>
+          <p>Mỗi Ngày Get 1 Lần</p>
+        </div>
+        <div class="file-actions">
+          <button onclick="confirmDownload('https://tumadam.io.vn/unlockskinandroid/getkeyandr')">Tải</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-box">
+    <div class="content">
+      <a href="https://tumadam.io.vn/autoup/note_list_skin" target="_blank" class="link-button">List Skin Bị Ảo Khi Dùng Unlock</a>
+      <a href="http://zaloapp.com/qr/p/cmwwupha3xme" target="_blank" class="link-button">💬 Liên Hệ Mua Key</a>
+    </div>
   </section>
 
 </div>
 
-<!-- Popup tải -->
+<!-- Popup xác nhận -->
 <div id="popup">
   <div class="box">
     <h3>Xác nhận tải</h3>
@@ -176,44 +230,23 @@ footer{text-align:center;margin-top:40px;font-size:13px;color:var(--muted);}
   </div>
 </div>
 
-<!-- Popup thuê -->
-<div id="rent-popup">
-  <div class="box">
-    <h3>Thuê Mod Skin</h3>
-    <p>💰 Giá: 3K/1 Skin<br>💰50 Skin: 40K<br>💰100 Skin: 80K<br>📆 Bảo hành 20 Ngày • ✅Bao update game</p>
-    <button class="contact-btn" onclick="window.open('https://t.me/Vipro87','_blank')">Liên hệ</button>
-    <button onclick="closeRent()">Đóng</button>
-  </div>
-</div>
-
-<footer>
-  Create by Ngọc Bổng Gaming • All Rights Reserved - 2025
-</footer>
-
 <script>
-let currentLink=null;
+let currentLink = null;
+
 function confirmDownload(link){
-  currentLink=link;
+  currentLink = link;
   document.getElementById("popup").style.display="flex";
 }
 function closePopup(){
   document.getElementById("popup").style.display="none";
-  currentLink=null;
+  currentLink = null;
 }
-document.getElementById("okBtn").addEventListener("click",()=>{
-  if(currentLink){window.location.href=currentLink;}
+document.getElementById("okBtn").addEventListener("click", ()=>{
+  if(currentLink){
+    window.location.href = currentLink;
+  }
   closePopup();
 });
-function toggleInfo(){
-  const box=document.getElementById("info-content");
-  box.style.display = box.style.display==="block" ? "none":"block";
-}
-function openRent(){
-  document.getElementById("rent-popup").style.display="flex";
-}
-function closeRent(){
-  document.getElementById("rent-popup").style.display="none";
-}
 </script>
 </body>
 </html>
